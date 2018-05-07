@@ -1,0 +1,11 @@
+provider:
+  name: faas
+  gateway: http://52.170.150.47:8080
+
+functions:
+  sms-ratings:
+    lang: python27-flask
+    handler: ./sms-ratings
+    image: chzbrgr71/sms-ratings:v6
+    environment:
+      COG_SERVICES_KEY=<your_value_here>

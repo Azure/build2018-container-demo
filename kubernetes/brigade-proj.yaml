@@ -1,0 +1,12 @@
+project: "Azure/build2018-container-demo"
+repository: "github.com/Azure/build2018-container-demo"
+cloneURL: "https://github.com/Azure/build2018-container-demo.git"
+sharedSecret: "schluchter-aks-gab-demo"
+# MAKE SURE YOU CHANGE THIS. It's basically a password
+github:
+  token: ""
+secrets:
+  acrServer: "krypton.azurecr.io"
+  acrUsername: "krypton"
+  acrPassword: ""
+vcsSidecar: "deis/git-sidecar:v0.11.0"

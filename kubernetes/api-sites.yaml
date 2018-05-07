@@ -1,0 +1,54 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: build2018-api-sites
+  labels:
+    name: build2018-api-sites
+spec:
+  type: LoadBalancer
+  ports:
+  - name: http
+    port: 8080
+    targetPort: 8080
+  selector:
+    app: build2018-api-sites
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    app: build2018-api-sites
+  name: build2018-api-sites
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: build2018-api-sites
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: build2018-api-sites
+    spec:
+      containers:
+      - env:
+        - name: MONGODB_URI
+          valueFrom:
+            secretKeyRef:
+              name: cosmos-db-secret
+              key: uri
+        - name: PORT
+          value: "8080"
+        image: briaracrbuild.azurecr.io/chzbrgr71/build-sites-api:v1
+        imagePullPolicy: Always
+        name: build2018-api-sites
+        ports:
+        - containerPort: 8080
+          protocol: TCP
+      restartPolicy: Always
+      schedulerName: default-scheduler

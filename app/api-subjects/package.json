@@ -1,0 +1,24 @@
+{
+  "name": "api-subjects",
+  "version": "1.1.0",
+  "description": "Build 2018 Container Demo",
+  "author": "Brian Redmond",
+  "scripts": {
+    "localdb": "NODE_ENV='development' MONGODB_URI='mongodb://localhost:27017/webratings' node ./bin/www",
+    "dev": "NODE_ENV='development' PORT='8082' node ./bin/www",
+    "container": "NODE_ENV='development' node ./bin/www"
+  },
+  "dependencies": {
+    "async": "^2.6.0",
+    "bluebird": "^3.5.1",
+    "body-parser": "~1.18.2",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.9",
+    "express": "~4.15.5",
+    "fs": "0.0.1-security",
+    "hbs": "~4.0.1",
+    "mongoose": "^4.13.8",
+    "morgan": "~1.9.0",
+    "serve-favicon": "~2.4.5"
+  }
+}

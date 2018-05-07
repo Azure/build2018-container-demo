@@ -1,0 +1,20 @@
+{
+  "name": "build-2018-aci-demo",
+  "version": "1.0.0",
+  "description": "build 2018 aci demo",
+  "main": "server.js",
+  "scripts": {
+    "local": "NODE_ENV='development' MONGODB_URI='mongodb://localhost:32768/webratings' node server.js",
+    "dev": "NODE_ENV='development' MONGODB_USER='briarbuild2018' MONGODB_PASS='qNDlyp02G8Xneys1brCIDhUKuPT1oMClubz39pMCuaHQ9rv3a1j0GP6rwnABMIZvVNYGOfpjxNZIOfLlBbjLcQ==' MONGODB_URI='mongodb://briarbuild2018.documents.azure.com:10255/?' node server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "async": "^2.6.0",
+    "bluebird": "^3.5.1",
+    "http": "0.0.0",
+    "mongoose": "^5.0.17",
+    "sys": "0.0.1",
+    "util": "^0.10.3"
+  }
+}

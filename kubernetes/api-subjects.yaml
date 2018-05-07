@@ -1,0 +1,54 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: build2018-api-subjects
+  labels:
+    name: build2018-api-subjects
+spec:
+  type: LoadBalancer
+  ports:
+  - name: http
+    port: 8080
+    targetPort: 8080
+  selector:
+    app: build2018-api-subjects
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    app: build2018-api-subjects
+  name: build2018-api-subjects
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: build2018-api-subjects
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: build2018-api-subjects
+    spec:
+      containers:
+      - env:
+        - name: MONGODB_URI
+          valueFrom:
+            secretKeyRef:
+              name: cosmos-db-secret
+              key: uri
+        - name: PORT
+          value: "8080"
+        image: briaracrbuild.azurecr.io/chzbrgr71/build-subjects-api:v1
+        imagePullPolicy: Always
+        name: build2018-api-subjects
+        ports:
+        - containerPort: 8080
+          protocol: TCP
+      restartPolicy: Always
+      schedulerName: default-scheduler
