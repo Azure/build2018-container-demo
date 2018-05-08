@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "local": "NODE_ENV='development' MONGODB_URI='mongodb://localhost:32768/webratings' node server.js",
-    "dev": "NODE_ENV='development' MONGODB_USER='briarbuild2018' MONGODB_PASS='qNDlyp02G8Xneys1brCIDhUKuPT1oMClubz39pMCuaHQ9rv3a1j0GP6rwnABMIZvVNYGOfpjxNZIOfLlBbjLcQ==' MONGODB_URI='mongodb://briarbuild2018.documents.azure.com:10255/?' node server.js"
+    "dev": "NODE_ENV='development' MONGODB_USER='' MONGODB_PASS='' MONGODB_URI='' node server.js"
   },
   "author": "",
   "license": "ISC",

@@ -103,7 +103,9 @@ function getOverview(dcb) {
             function (subjects, cb) {
                 Rating.aggregate([
                     {
-                        $group: {
+                        $match:{'siteCode':'PRG'}
+                    },
+                       { $group: {
                             _id: "$subjectRated",
                             stars: { $sum: "$rating" },
                             votes: { $sum: 1 }

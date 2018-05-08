@@ -48,6 +48,9 @@ router.get("/ratings/:sitecode", function(req, res, next) {
       function(subjects, cb) {
         Rating.aggregate([
           {
+            $match:{'siteCode':'PRG'}
+          },
+          {
             $group: {
               _id: "$subjectRated",
               stars: { $sum: "$rating" },

@@ -44,7 +44,7 @@ spec:
               key: uri
         - name: PORT
           value: "8080"
-        image: briaracrbuild.azurecr.io/chzbrgr71/build-ratings-api:v1
+        image: briaracrbuild.azurecr.io/chzbrgr71/build-ratings-api:fixed
         imagePullPolicy: Always
         name: build2018-api-ratings
         ports:

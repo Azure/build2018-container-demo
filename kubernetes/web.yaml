@@ -43,7 +43,7 @@ spec:
           value: "http://build2018-api-subjects:8080/"
         - name: RATING_API
           value: "http://build2018-api-ratings:8080/"
-        image: krypton.azurecr.io/gab/webv2:v2
+        image: briaracrbuild.azurecr.io/chzbrgr71/build-rating-web:livestage
         imagePullPolicy: Always
         name: build2018-rating-web
         ports:
