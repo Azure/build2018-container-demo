@@ -1,0 +1,46 @@
+version: "3"
+
+services:
+  web:
+    image: sonofjorel/rate-web:v4
+    ports:
+      - "8080:8080"
+    environment:
+     NODE_ENV: development
+     SITE_API: http://sites:8080/
+     SUBJECT_API: http://subjects:8080/
+     RATING_API: http://ratings:8080/
+    depends_on:
+      - "sites"
+      - "subjects"
+      - "ratings"
+    networks:
+      - front-tier
+
+  sites:
+    image: sonofjorel/api-sites:v1
+    container_name: sites-api
+    environment:
+      MONGODB_URI: mongodb://briarbuild2018:qNDlyp02G8Xneys1brCIDhUKuPT1oMClubz39pMCuaHQ9rv3a1j0GP6rwnABMIZvVNYGOfpjxNZIOfLlBbjLcQ==@briarbuild2018.documents.azure.com:10255/webratings?ssl=true
+    networks:
+      - front-tier
+
+  subjects:
+    image: sonofjorel/api-subjects:v1
+    container_name: subjects-api
+    environment:
+      MONGODB_URI: mongodb://briarbuild2018:qNDlyp02G8Xneys1brCIDhUKuPT1oMClubz39pMCuaHQ9rv3a1j0GP6rwnABMIZvVNYGOfpjxNZIOfLlBbjLcQ==@briarbuild2018.documents.azure.com:10255/webratings?ssl=true
+    networks:
+      - front-tier
+
+  ratings:
+    image: sonofjorel/api-ratings:v1
+    container_name: ratings-api
+    environment:
+      MONGODB_URI: mongodb://briarbuild2018:qNDlyp02G8Xneys1brCIDhUKuPT1oMClubz39pMCuaHQ9rv3a1j0GP6rwnABMIZvVNYGOfpjxNZIOfLlBbjLcQ==@briarbuild2018.documents.azure.com:10255/webratings?ssl=true
+    networks:
+      - front-tier
+
+networks:
+  front-tier:
+
