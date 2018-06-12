@@ -17,7 +17,7 @@
         <at-button-group>
           <at-button @click="link('Rating')" icon="icon-star" class="mid-btn" type="primary"  hollow>Start Rating</at-button>
           <at-button @click="link('Leaderboard')" icon="icon-bar-chart-2" class="mid-btn" type="success" hollow>View Leaderboard</at-button>
-          <at-button icon="icon-github" class="mid-btn" type="info" hollow>Steal this code</at-button>
+           <a href="https://github.com/Azure/build2018-container-demo" target="_blank"><at-button icon="icon-github" class="mid-btn" type="info" hollow>Steal this code</at-button></a>
         </at-button-group>
       </div>
       <div class="col-lg-3">
